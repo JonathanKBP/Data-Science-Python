@@ -1,16 +1,16 @@
 from collections import Counter
 from collections import defaultdict
 users = [
-    {"id": 0, "name": "Hero"},
-    {"id": 1, "name": "Dunn"},
-    {"id": 2, "name": "Sue"},
-    {"id": 3, "name": "Chi"},
-    {"id": 4, "name": "Thor"},
-    {"id": 5, "name": "Clive"},
-    {"id": 6, "name": "Hicks"},
-    {"id": 7, "name": "Devin"},
-    {"id": 8, "name": "Kate"},
-    {"id": 9, "name": "Klein"}
+    {"id": 0, "name": "Hero", "sex": "male", "age": "20"},
+    {"id": 1, "name": "Dunn", "sex": "male", "age": "18"},
+    {"id": 2, "name": "Sue", "sex": "feminine", "age": "38"},
+    {"id": 3, "name": "Chi", "sex": "feminine", "age": "25"},
+    {"id": 4, "name": "Thor", "sex": "male", "age": "47"},
+    {"id": 5, "name": "Clive", "sex": "male", "age": "50"},
+    {"id": 6, "name": "Hicks", "sex": "feminine", "age": "37"},
+    {"id": 7, "name": "Devin", "sex": "male", "age": "21"},
+    {"id": 8, "name": "Kate", "sex": "feminine", "age": "60"},
+    {"id": 9, "name": "Klein", "sex": "feminine", "age": "16"}
 
 ]
 
@@ -243,4 +243,27 @@ def classificar_como_paga_ou_gratuita (experiencia):
     else:
         return 'paga'
 
-print (classificar_como_paga_ou_gratuita (1.9))
+#print (classificar_como_paga_ou_gratuita (1.9))
+
+def descobrir_o_sexo (user):
+    if user['sex'] == 'male':
+        return True
+    else:
+        return False
+
+#print("usuario e masculino ?", descobrir_o_sexo (users[0]))
+
+def classificar_sexo_das_amizades (user):
+    friend_male = 0
+    friend_feminine = 0
+
+    for friend in user["friends"]:
+        if (descobrir_o_sexo(friend)):
+            friend_male += 1
+        else:
+            friend_feminine += 1
+
+    sex_friends = {"id": user["id"], "sex_friends": (friend_male, friend_feminine) }  
+
+    return sex_friends
+print (classificar_sexo_das_amizades(users[5])) 
