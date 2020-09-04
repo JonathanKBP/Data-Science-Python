@@ -1,17 +1,16 @@
 from collections import Counter
 from collections import defaultdict
 users = [
-    {"id": 0, "name": "Hero", "sex": "male", "age": "20"},
-    {"id": 1, "name": "Dunn", "sex": "male", "age": "18"},
-    {"id": 2, "name": "Sue", "sex": "feminine", "age": "38"},
-    {"id": 3, "name": "Chi", "sex": "feminine", "age": "25"},
-    {"id": 4, "name": "Thor", "sex": "male", "age": "47"},
-    {"id": 5, "name": "Clive", "sex": "male", "age": "50"},
-    {"id": 6, "name": "Hicks", "sex": "feminine", "age": "37"},
-    {"id": 7, "name": "Devin", "sex": "male", "age": "21"},
-    {"id": 8, "name": "Kate", "sex": "feminine", "age": "60"},
-    {"id": 9, "name": "Klein", "sex": "feminine", "age": "16"}
-
+    {"id": 0, "name": "Hero"},
+    {"id": 1, "name": "Dunn"},
+    {"id": 2, "name": "Sue"},
+    {"id": 3, "name": "Chi"},
+    {"id": 4, "name": "Thor"},
+    {"id": 5, "name": "Clive"},
+    {"id": 6, "name": "Hicks"},
+    {"id": 7, "name": "Devin"},
+    {"id": 8, "name": "Kate"},
+    {"id": 9, "name": "Klein"},
 ]
 
 # lista = [1, 2, 3, 4, 5]
@@ -139,7 +138,7 @@ def data_scientists_who_like (target_interest):
 #print (data_scientists_who_like ("Big Data"))
 
 #def f ():
-    return 5
+#   return 5
 
 #d = defaultdict (list)
 
@@ -245,8 +244,16 @@ def classificar_como_paga_ou_gratuita (experiencia):
 
 #print (classificar_como_paga_ou_gratuita (1.9))
 
+sex_and_age = [
+    (0, "male", "18"), (1, "male", "20"), 
+    (2, "feminine", "38"), (3, "feminine", "25"), 
+    (4, "male", "47"), (5, "male", "50"),
+    (6, "feminine", "37"), (7, "male", "21"), 
+    (8, "feminine", "60"), (9, "feminine", "16"),
+]
+
 def descobrir_o_sexo (user):
-    if user['sex'] == 'male':
+    if sex_and_age[user["id"]][1] == 'male':
         return True
     else:
         return False
@@ -266,4 +273,4 @@ def classificar_sexo_das_amizades (user):
     sex_friends = {"id": user["id"], "sex_friends": (friend_male, friend_feminine) }  
 
     return sex_friends
-print (classificar_sexo_das_amizades(users[5])) 
+print (classificar_sexo_das_amizades(users[5]))
